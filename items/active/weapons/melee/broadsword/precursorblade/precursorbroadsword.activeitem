@@ -19,7 +19,15 @@
     "blade" : "precursorbroadsword.png",
     "bladefullbright" : "precursorbroadswordfullbright.png"
   },
-  "animationCustom" : { },
+  "animationCustom" : {
+    "sounds": {
+      "fire": [ "/sfx/melee/swing_spear_fire3.ogg" ],
+      "fire2": [ "/sfx/melee/swing_shortsword_fire3.ogg" ],
+      "fire3": [ "/sfx/melee/swing_broadsword_fire2.ogg" ],
+      "fire4": [ "/sfx/melee/swing_broadsword_fire1.ogg" ],
+      "fire5": [ "/sfx/melee/swing_hammer_fire3.ogg" ]
+    }
+   },
 
   "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
 
@@ -27,17 +35,92 @@
 
   "primaryAbilityType" : "broadswordcombo",
   "primaryAbility" : {
-    "fireTime" : 0.82,
-    "baseDps" : 10.23,
-    "damageConfig" : {
-      "knockback" : 20,
-       "statusEffects" : [ "radiationburn" ],
-       "damageSourceKind" : "radioactivebroadsword"
-    }
-  },
+    "fireTime":0.95,
+    "baseDps":10.23,
+    "damageConfig":{
+        "knockback":17,
+        "statusEffects" : [ "radiationburn" ],
+        "damageSourceKind": "radioactivebroadsword"
+      },
+      "comboSteps":5,
+      "swooshOffsetRegions":[
+        [0.75, 0.0, 4.25, 5.0],
+        [0.5, 0.0, 4.5, 0.0],
+        [1.5, -1.0, 5.5, 1.0],
+        [0.75, 0.0, 4.25, 5.0],
+        [1.5, -1.0, 5.5, 1.0]
+      ],
+      "stepDamageConfig":[
+        {"baseDamageFactor":0.4, "knockback":15},
+        {"baseDamageFactor":0.25, "knockback":10},
+        {"baseDamageFactor":0.4, "knockback":14},
+        {"baseDamageFactor":0.3, "knockback":22},
+        {"baseDamageFactor":0.7, "knockback":18}
+        ],
+      "stances":{
+        "idle" : {
+          "armRotation" : -105,
+          "weaponRotation" : 5,
+          "twoHanded" : false,
+          "allowRotate" : false,
+          "allowFlip" : true,
+          "aimAngle" : 0
+        },
+          "windup1":{
+          "duration":0.1,
+          "armRotation":100,
+          "weaponRotation":-10,
+          "twoHanded":true,
+          "weaponOffset":[0,1],
+          "allowRotate":true,
+          "allowFlip":true
+          },
+        "preslash1":{
+          "duration":0.025,
+          "armRotation":30,
+          "weaponRotation":-45,
+          "twoHanded":true,
+          "weaponOffset":[0,1],
+          "allowRotate":true,
+          "allowFlip":true
+          },
+        "fire1":{
+          "duration":0.15,
+          "armRotation":-45,
+          "weaponRotation":-55,
+          "twoHanded":true,
+          "weaponOffset":[0,0],
+          "allowRotate":false,
+          "allowFlip":false
+          },
+        "wait1":{
+          "duration":1.2,
+          "armRotation":-85,
+          "weaponRotation":-5,
+          "allowRotate":false,
+          "allowFlip":true,
+          "twoHanded":true,
+          "weaponOffset":[0,0]
+        },
+        "windup2":{"duration":0.1, "armRotation":-100, "weaponRotation":0, "weaponOffset":[0,1], "twoHanded":true, "allowRotate":true, "allowFlip":true},
+        "preslash2":{"duration":0},
+        "fire2":{"duration":0.18, "armRotation":180, "weaponRotation":70, "weaponOffset":[0,0], "twoHanded":true, "allowRotate":false, "allowFlip":true},
+        "wait2":{"duration":0.15, "armRotation":-85, "weaponRotation":-5, "allowRotate":false, "allowFlip":true, "twoHanded":true, "weaponOffset":[0,1]},
+        "windup3":{"duration":0.2, "armRotation":75, "weaponRotation":40, "weaponOffset":[0,0], "twoHanded":true, "allowRotate":true, "allowFlip":true},
+        "preslash3":{"duration":0}, 
+        "fire3":{"duration":0.3, "armRotation":0, "weaponRotation":-90, "weaponOffset":[0,0], "twoHanded":true, "allowRotate":false, "allowFlip":true},
+        "wait3":{"duration":0.05, "armRotation":-85, "weaponRotation":-5, "allowRotate":false, "allowFlip":true, "twoHanded":true, "weaponOffset":[0,1]},
+        "windup4":{"duration":0.09, "armRotation":-20, "weaponRotation":-20, "weaponOffset":[0,1], "twoHanded":true, "allowRotate":true, "allowFlip":true},
+        "preslash4":{"duration":0},
+        "fire4":{"duration":0.06, "armRotation":160, "weaponRotation":70, "weaponOffset":[0,1], "twoHanded":true, "allowRotate":false, "allowFlip":true},
+        "wait4":{"duration":0.15, "armRotation":-170, "weaponRotation":50, "allowRotate":false, "allowFlip":true, "twoHanded":true, "weaponOffset":[0,1]},
+        "windup5":{"duration":0.18, "armRotation":110, "weaponRotation":0, "weaponOffset":[0,1], "twoHanded":true, "allowRotate":true, "allowFlip":true},
+        "preslash5":{"duration":0.08, "armRotation":60, "weaponRotation":15, "weaponOffset":[0,0], "twoHanded":true, "allowRotate":true, "allowFlip":true}, 
+        "fire5":{"duration":0.5, "armRotation":-45, "weaponRotation":-65, "weaponOffset":[0,1], "twoHanded":true, "allowRotate":false, "allowFlip":true},
+        "wait5":{"duration":0.01, "armRotation":-85, "weaponRotation":-5, "allowRotate":false, "allowFlip":true, "twoHanded":true, "weaponOffset":[0,1]}}},
 
   "altAbilityType" : "travelingslash",
-  "altAbility" : { "projectileParameters" : { "timeToLive" : 2} },
+  "altAbility" : {"projectileParameters" : { "timeToLive" : 2} },
 
   "critChance" : 2,
   "critBonus" : 12,
